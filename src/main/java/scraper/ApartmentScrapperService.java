@@ -3,7 +3,6 @@ package scraper;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import java.io.IOException;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -28,7 +27,7 @@ public class ApartmentScrapperService {
                 .flatMap(scrapper -> {
                     try {
                         return scrapper.scrapApartments().stream();
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                         return Stream.empty();
                     }

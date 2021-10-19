@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class TrojmiastoApartmentScrapperImpl implements ApartmentScrapper {
 
     private final static Logger LOGGER = Logger.getLogger(TrojmiastoApartmentScrapperImpl.class.getName());
-    private final static String TROJMIASTO_URL = "https://ogloszenia.trojmiasto.pl/nieruchomosci-mam-do-wynajecia/mieszkanie/o1,1.html";
+    private final static String TROJMIASTO_URL = "https://ogloszenia.trojmiasto.pl/nieruchomosci-mam-do-wynajecia/mieszkanie/f1i,1_3,o1,1.html";
 
     @Override
     public Set<Apartment> scrapApartments() throws IOException {
@@ -59,6 +59,7 @@ public class TrojmiastoApartmentScrapperImpl implements ApartmentScrapper {
             apartments.add(apartmentBuilder.build());
         }
 
+        LOGGER.log(Level.INFO, "Scrapped " + apartments.size() + " apartments from Trojmiasto.pl");
         return apartments;
     }
 }
